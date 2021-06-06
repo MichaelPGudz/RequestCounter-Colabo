@@ -17,7 +17,7 @@ namespace API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration )
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -29,8 +29,8 @@ namespace API
         {
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "API", Version = "v1"}); });
-            services.AddSingleton<IRequestCountStatsService, RequestCountStatisticsService>();
-            
+            services.ResisterCounterService();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -11,5 +11,9 @@ namespace RequestCounter.Services
     public static class AppServiceExtension
     {
        // Put your code here
+       public static void ResisterCounterService(this IServiceCollection collection)
+       {
+           collection.AddSingleton<IRequestCountStatsService, RequestCountStatisticsService>();
+       }
     }
 }

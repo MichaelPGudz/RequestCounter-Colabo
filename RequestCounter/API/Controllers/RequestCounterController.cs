@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using RequestCounter.Services;
 
 namespace API.Controllers
@@ -48,6 +49,12 @@ namespace API.Controllers
         {
             _reqcountservice.IncreaseCounter("Delete");
             return Ok();
+        }
+        
+        [HttpGet("Statistics")]
+        public IActionResult Statistics()
+        {
+            return Json(_reqcountservice.GetStatistics());
         }
     }
 }
